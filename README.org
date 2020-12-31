@@ -1,0 +1,68 @@
+* tab-bar-lost-commands.el
+
+The "lost commands" of the Emacs tab bar.
+
+That is, simple and convenient commands that help with common tab bar
+use-cases regarding the creation, selection and movement of tabs.
+
+* Installation
+
+If you use MELPA, an easy way to install this package is via
+=package-install=. Alternatively, download =tab-bar-lost-commands.el=,
+put it in your =load-path= and =require= it.
+
+If you use both MELPA and =use-package=, you can use this, too:
+
+#+begin_src emacs-lisp
+(use-package tab-bar-lost-commands
+  :ensure t)
+#+end_src
+
+* Commands
+
+Table of available commands and their description.
+
+| Command                              | Description                                                                             |
+|--------------------------------------+-----------------------------------------------------------------------------------------|
+| =tab-bar-lc-switch-to-first-tab=     | Switch to the first tab                                                                 |
+| =tab-bar-lc-switch-to-last-tab=      | Switch to the last tab                                                                  |
+| =tab-bar-lc-move-tab-backward=       | Move the current tab backward by one                                                    |
+| =tab-bar-lc-move-tab-forward=        | Move the current tab forward by one                                                     |
+| =tab-bar-lc-move-tab-first=          | Move the current tab to the first position                                              |
+| =tab-bar-lc-move-tab-last=           | Move the current tab to the last position                                               |
+| =tab-bar-lc-switch-to-or-create-tab= | Like =tab-bar-switch-to-tab=, but allow for the creation of a new, named tab on the fly |
+
+* Recommended Keybindings
+
+Note that this package doesn't bind any keys by itself.
+
+In my local configuration, to mimic my browser's keyboard shortcuts for
+switching tabs, I use =s-{= and =s-}= to switch to the previous or next
+tab (using pre-existing Emacs tab bar commands).
+
+I then add the meta key to these bindings to make them switch to the
+first or last tab. Also, I add the control key to these bindings to make
+them move the current tab backward or forward by one. Lastly, I add both
+the control and the meta key to make them move the current tab to the
+first or last position.
+
+I also rewrite =C-x t <return>= ("switch to tab by name") to run an
+enhanced version of that command that allows for the creation of a new,
+named tab on the fly.
+
+#+begin_src emacs-lisp
+(use-package tab-bar
+  :bind (("s-{" . tab-bar-switch-to-prev-tab)
+         ("s-}" . tab-bar-switch-to-next-tab)))
+
+(use-package tab-bar-lost-commands
+  :ensure t
+  :bind (("M-s-{" . tab-bar-lc-switch-to-first-tab)
+         ("M-s-}" . tab-bar-lc-switch-to-last-tab)
+         ("C-s-{" . tab-bar-lc-move-tab-backward)
+         ("C-s-}" . tab-bar-lc-move-tab-forward)
+         ("C-M-s-{" . tab-bar-lc-move-tab-first)
+         ("C-M-s-}" . tab-bar-lc-move-tab-last)
+         :map tab-prefix-map
+         ("<return>" . tab-bar-lc-switch-to-or-create-tab)))
+#+end_src
