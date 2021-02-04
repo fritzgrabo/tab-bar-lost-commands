@@ -5,7 +5,7 @@
 ;; Author: Fritz Grabo <me@fritzgrabo.com>
 ;; URL: https://github.com/fritzgrabo/tab-bar-lost-commands
 ;; Version: 0.1
-;; Package-Requires: ((emacs "27.1") (tab-bar-utils "0.1"))
+;; Package-Requires: ((emacs "27.1"))
 ;; Keywords: convenience
 
 ;; This file is not part of GNU Emacs.
@@ -31,8 +31,6 @@
 ;; use-cases regarding the creation, selection and movement of tabs.
 
 ;;; Code:
-
-(require 'tab-bar-utils)
 
 (defun tab-bar-lc-switch-to-first-tab ()
   "Switch to the first tab."
@@ -67,7 +65,7 @@
 (defun tab-bar-lc-switch-to-or-create-tab ()
   "Like `tab-bar-switch-to-tab`, but allow for the creation of a new, named tab on the fly."
   (interactive)
-  (let* ((tab-names (tab-bar-utils-tab-names))
+  (let* ((tab-names (mapcar (lambda (tab) (alist-get 'name tab)) (funcall tab-bar-tabs-function)))
          (tab-name (completing-read "Switch to tab: " tab-names)))
     (if (member tab-name tab-names)
         (tab-bar-select-tab-by-name tab-name)
