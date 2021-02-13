@@ -32,37 +32,37 @@
 
 ;;; Code:
 
-(defun tab-bar-lc-switch-to-first-tab ()
+(defun tab-bar-lost-commands-switch-to-first-tab ()
   "Switch to the first tab."
   (interactive)
   (tab-bar-select-tab 1))
 
-(defun tab-bar-lc-switch-to-last-tab ()
+(defun tab-bar-lost-commands-switch-to-last-tab ()
   "Switch to the last tab."
   (interactive)
   (tab-bar-select-tab (length (funcall tab-bar-tabs-function))))
 
-(defun tab-bar-lc-move-tab-first ()
+(defun tab-bar-lost-commands-move-tab-first ()
   "Move the current tab to the first position."
   (interactive)
   (tab-bar-move-tab-to 1))
 
-(defun tab-bar-lc-move-tab-backward ()
+(defun tab-bar-lost-commands-move-tab-backward ()
   "Move the current tab backward by one."
   (interactive)
   (tab-bar-move-tab -1))
 
-(defun tab-bar-lc-move-tab-forward ()
+(defun tab-bar-lost-commands-move-tab-forward ()
   "Move the current tab forward by one."
   (interactive)
   (tab-bar-move-tab 1))
 
-(defun tab-bar-lc-move-tab-last ()
+(defun tab-bar-lost-commands-move-tab-last ()
   "Move the current tab to the last position."
   (interactive)
   (tab-bar-move-tab-to (length (funcall tab-bar-tabs-function))))
 
-(defun tab-bar-lc-switch-to-or-create-tab ()
+(defun tab-bar-lost-commands-switch-to-or-create-tab ()
   "Like `tab-bar-switch-to-tab`, but allow for the creation of a new, named tab on the fly."
   (interactive)
   (let* ((tab-names (mapcar (lambda (tab) (alist-get 'name tab)) (funcall tab-bar-tabs-function)))

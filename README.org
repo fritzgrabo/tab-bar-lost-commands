@@ -22,15 +22,15 @@ If you use both MELPA and =use-package=, you can use this, too:
 
 Table of available commands and their description.
 
-| Command                              | Description                                                                             |
-|--------------------------------------+-----------------------------------------------------------------------------------------|
-| =tab-bar-lc-switch-to-first-tab=     | Switch to the first tab                                                                 |
-| =tab-bar-lc-switch-to-last-tab=      | Switch to the last tab                                                                  |
-| =tab-bar-lc-move-tab-backward=       | Move the current tab backward by one                                                    |
-| =tab-bar-lc-move-tab-forward=        | Move the current tab forward by one                                                     |
-| =tab-bar-lc-move-tab-first=          | Move the current tab to the first position                                              |
-| =tab-bar-lc-move-tab-last=           | Move the current tab to the last position                                               |
-| =tab-bar-lc-switch-to-or-create-tab= | Like =tab-bar-switch-to-tab=, but allow for the creation of a new, named tab on the fly |
+| Command                                         | Description                                                                             |
+|-------------------------------------------------+-----------------------------------------------------------------------------------------|
+| =tab-bar-lost-commands-switch-to-first-tab=     | Switch to the first tab                                                                 |
+| =tab-bar-lost-commands-switch-to-last-tab=      | Switch to the last tab                                                                  |
+| =tab-bar-lost-commands-move-tab-backward=       | Move the current tab backward by one                                                    |
+| =tab-bar-lost-commands-move-tab-forward=        | Move the current tab forward by one                                                     |
+| =tab-bar-lost-commands-move-tab-first=          | Move the current tab to the first position                                              |
+| =tab-bar-lost-commands-move-tab-last=           | Move the current tab to the last position                                               |
+| =tab-bar-lost-commands-switch-to-or-create-tab= | Like =tab-bar-switch-to-tab=, but allow for the creation of a new, named tab on the fly |
 
 * Recommended Keybindings
 
@@ -57,12 +57,12 @@ named tab on the fly.
 
 (use-package tab-bar-lost-commands
   :ensure t
-  :bind (("M-s-{" . tab-bar-lc-switch-to-first-tab)
-         ("M-s-}" . tab-bar-lc-switch-to-last-tab)
-         ("C-s-{" . tab-bar-lc-move-tab-backward)
-         ("C-s-}" . tab-bar-lc-move-tab-forward)
-         ("C-M-s-{" . tab-bar-lc-move-tab-first)
-         ("C-M-s-}" . tab-bar-lc-move-tab-last)
+  :bind (("M-s-{" . tab-bar-lost-commands-switch-to-first-tab)
+         ("M-s-}" . tab-bar-lost-commands-switch-to-last-tab)
+         ("C-s-{" . tab-bar-lost-commands-move-tab-backward)
+         ("C-s-}" . tab-bar-lost-commands-move-tab-forward)
+         ("C-M-s-{" . tab-bar-lost-commands-move-tab-first)
+         ("C-M-s-}" . tab-bar-lost-commands-move-tab-last)
          :map tab-prefix-map
-         ("<return>" . tab-bar-lc-switch-to-or-create-tab)))
+         ("<return>" . tab-bar-lost-commands-switch-to-or-create-tab)))
 #+end_src
