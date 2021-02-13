@@ -63,7 +63,7 @@
   (tab-bar-move-tab-to (length (funcall tab-bar-tabs-function))))
 
 (defun tab-bar-lost-commands-switch-to-or-create-tab ()
-  "Like `tab-bar-switch-to-tab`, but allow for the creation of a new, named tab on the fly."
+  "Like `tab-bar-switch-to-tab', but allow for the creation of a new, named tab on the fly."
   (interactive)
   (let* ((tab-names (mapcar (lambda (tab) (alist-get 'name tab)) (funcall tab-bar-tabs-function)))
          (tab-name (completing-read "Switch to tab: " tab-names)))
