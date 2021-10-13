@@ -18,7 +18,7 @@ If you use both MELPA and =use-package=, you can use this, too:
 
 #+begin_src emacs-lisp
 (use-package tab-bar-lost-commands
-  :ensure t)
+  :ensure)
 #+end_src
 
 * Commands
@@ -59,7 +59,7 @@ named tab on the fly.
          ("s-}" . tab-bar-switch-to-next-tab)))
 
 (use-package tab-bar-lost-commands
-  :ensure t
+  :ensure
   :bind (("M-s-{" . tab-bar-lost-commands-switch-to-first-tab)
          ("M-s-}" . tab-bar-lost-commands-switch-to-last-tab)
          ("C-s-{" . tab-bar-lost-commands-move-tab-backward)
